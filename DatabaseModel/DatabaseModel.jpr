@@ -26,6 +26,7 @@
       <list n="technologyScope">
          <string v="Database"/>
          <string v="Database-Modeling"/>
+         <string v="UML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
