@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Telefono</name>
+  <name>TelefonoContacto</name>
   <columns>
     <column>
       <name>idPaciente</name>
@@ -18,16 +18,31 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>Telefono</name>
+      <name>idContacto</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.Long">8</value>
+            <value class="java.lang.Long">4</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>Telefono</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
@@ -38,7 +53,7 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">50</value>
+            <value class="java.lang.Long">20</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -50,12 +65,22 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>Telefono_FK_Paciente</name>
+      <name>TelefonoContacto_FK_Contacto</name>
       <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idContacto</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>TelefonoContacto</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>idPaciente</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Telefono</name>
+            <name>TelefonoContacto</name>
             <schemaName>paciente</schemaName>
             <type>TABLE</type>
           </parent>
@@ -65,9 +90,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>Paciente_PK</name>
+        <name>Contacto_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>Paciente</name>
+          <name>Contacto</name>
           <schemaName>paciente</schemaName>
           <type>TABLE</type>
         </parent>
@@ -76,12 +101,12 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Telefono_PK</name>
+      <name>TelefonoContacto_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>idPaciente</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Telefono</name>
+            <name>TelefonoContacto</name>
             <schemaName>paciente</schemaName>
             <type>TABLE</type>
           </parent>
@@ -91,7 +116,17 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>Telefono</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Telefono</name>
+            <name>TelefonoContacto</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idContacto</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>TelefonoContacto</name>
             <schemaName>paciente</schemaName>
             <type>TABLE</type>
           </parent>

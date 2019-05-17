@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Paciente</name>
+  <name>Contacto</name>
   <columns>
     <column>
-      <name>cedulaPaciente</name>
+      <name>idPaciente</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,21 +18,27 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>FechaNacimiento</name>
+      <name>idContacto</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
+          <typeName>NUMERIC</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
-      <name>EstadoCivil</name>
+      <name>Nombre</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">10</value>
+            <value class="java.lang.Long">20</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -57,7 +63,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>Nombre</name>
+      <name>Relacion</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -71,30 +77,51 @@
       </dataTypeUsage>
       <notNull>false</notNull>
     </column>
-    <column>
-      <name>Ocupacion</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Paciente_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>Contacto_FK_Paciente</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>cedulaPaciente</name>
+          <name>idPaciente</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Paciente</name>
+            <name>Contacto</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Paciente_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Paciente</name>
+          <schemaName>paciente</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>paciente</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>Contacto_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idContacto</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Contacto</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPaciente</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Contacto</name>
             <schemaName>paciente</schemaName>
             <type>TABLE</type>
           </parent>
