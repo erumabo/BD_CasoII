@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Paciente</name>
+  <name>TelefonoEncargado</name>
   <columns>
     <column>
-      <name>cedulaPaciente</name>
+      <name>cedEncargado</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,16 +18,22 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>FechaNacimiento</name>
+      <name>Telefono</name>
       <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">9</value>
+          </entry>
+        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
+          <typeName>VARCHAR</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
-      <name>EstadoCivil</name>
+      <name>cedPaciente</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -42,22 +48,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>Apellidos</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">50</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>Nombre</name>
+      <name>Descripcion</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -71,30 +62,61 @@
       </dataTypeUsage>
       <notNull>false</notNull>
     </column>
-    <column>
-      <name>Ocupacion</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Paciente_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>TelefonoEncargado_FK_Encargado</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>cedulaPaciente</name>
+          <name>cedPaciente</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Paciente</name>
+            <name>TelefonoEncargado</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>cedEncargado</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>TelefonoEncargado</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Encargado_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Encargado</name>
+          <schemaName>paciente</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>paciente</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>TelefonoEncargado_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>cedEncargado</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>TelefonoEncargado</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>Telefono</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>TelefonoEncargado</name>
             <schemaName>paciente</schemaName>
             <type>TABLE</type>
           </parent>
