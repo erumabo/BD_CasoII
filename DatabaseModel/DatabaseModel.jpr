@@ -28,6 +28,7 @@
          <string v="Database-Modeling"/>
          <string v="Java"/>
          <string v="UML"/>
+         <string v="XML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
