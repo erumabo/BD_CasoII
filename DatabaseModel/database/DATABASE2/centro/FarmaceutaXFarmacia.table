@@ -1,9 +1,24 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Laboratorio</name>
+  <name>FarmaceutaXFarmacia</name>
   <columns>
     <column>
-      <name>idLaboratorio</name>
+      <name>idFarmaceuta</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">5</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>idFarmacia</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,46 +33,10 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>codSede</name>
+      <name>FechaAsignacion</name>
       <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>Nombre</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>tipoLaboratorio</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">4</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
+          <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -65,12 +44,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>Laboratorio_FK_TipoLaboratorio</name>
+      <name>FarmaceutaXFarmacia_FK_Farmaceuta</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>tipoLaboratorio</name>
+          <name>idFarmaceuta</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Laboratorio</name>
+            <name>FarmaceutaXFarmacia</name>
             <schemaName>centro</schemaName>
             <type>TABLE</type>
           </parent>
@@ -80,23 +59,59 @@
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>TipoLaboratorio_PK</name>
+        <name>Farmaceuta_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>TipoLaboratorio</name>
-          <schemaName>tipos</schemaName>
+          <name>Farmaceuta</name>
+          <schemaName>centro</schemaName>
           <type>TABLE</type>
         </parent>
-        <schemaName>tipos</schemaName>
+        <schemaName>centro</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>FarmaceutaXFarmacia_FK_Farmacia</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idFarmacia</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>FarmaceutaXFarmacia</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Farmacia_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Farmacia</name>
+          <schemaName>centro</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>centro</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Laboratorio_PK</name>
+      <name>FarmaceutaXFarmacia_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>idLaboratorio</name>
+          <name>idFarmaceuta</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Laboratorio</name>
+            <name>FarmaceutaXFarmacia</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idFarmacia</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>FarmaceutaXFarmacia</name>
             <schemaName>centro</schemaName>
             <type>TABLE</type>
           </parent>

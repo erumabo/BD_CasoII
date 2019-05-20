@@ -1,7 +1,31 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Laboratorio</name>
+  <name>EncardadoXLaboratorio</name>
   <columns>
+    <column>
+      <name>idEncargado</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">5</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>FechaAsignacion</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
     <column>
       <name>idLaboratorio</name>
       <dataTypeUsage>
@@ -17,60 +41,15 @@
       </dataTypeUsage>
       <notNull>true</notNull>
     </column>
-    <column>
-      <name>codSede</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>Nombre</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>tipoLaboratorio</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">4</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>Laboratorio_FK_TipoLaboratorio</name>
+      <name>EncardadoXLaboratorio_FK_Encargado</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>tipoLaboratorio</name>
+          <name>idEncargado</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Laboratorio</name>
+            <name>EncardadoXLaboratorio</name>
             <schemaName>centro</schemaName>
             <type>TABLE</type>
           </parent>
@@ -80,23 +59,59 @@
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>TipoLaboratorio_PK</name>
+        <name>EncargadoLaboratorio_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>TipoLaboratorio</name>
-          <schemaName>tipos</schemaName>
+          <name>EncargadoLaboratorio</name>
+          <schemaName>centro</schemaName>
           <type>TABLE</type>
         </parent>
-        <schemaName>tipos</schemaName>
+        <schemaName>centro</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Laboratorio_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>EncardadoXLaboratorio_FK_Laboratorio</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>idLaboratorio</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Laboratorio</name>
+            <name>EncardadoXLaboratorio</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Laboratorio_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Laboratorio</name>
+          <schemaName>centro</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>centro</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>EncardadoXLaboratorio_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idEncargado</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>EncardadoXLaboratorio</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idLaboratorio</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>EncardadoXLaboratorio</name>
             <schemaName>centro</schemaName>
             <type>TABLE</type>
           </parent>
