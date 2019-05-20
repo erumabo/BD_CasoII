@@ -1,0 +1,261 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>Receta</name>
+  <columns>
+    <column>
+      <name>idPlan</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>idMedico</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>idPaciente</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>idReceta</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>idMedicamento</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>Dosis</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>Indicaciones</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">50</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>Estado</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">2</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>Receta_FK_Estado</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>Estado</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Receta</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>EstadoReceta_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>EstadoReceta</name>
+          <schemaName>planMedico</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>planMedico</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>Receta_FK_Medicamento</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idMedicamento</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Receta</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Medicamento_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Medicamento</name>
+          <schemaName>centro</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>centro</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>Receta_FK_PlanMedico</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPaciente</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Receta</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idMedico</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Receta</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPlan</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Receta</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>PlanMedico_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>PlanMedico</name>
+          <schemaName>planMedico</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>planMedico</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>Receta_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPlan</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Receta</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idReceta</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Receta</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>planMedico</name>
+  </schema>
+</table>

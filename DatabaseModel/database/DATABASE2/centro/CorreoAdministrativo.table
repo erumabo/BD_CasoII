@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>CorreoAdministrativo</name>
+  <columns>
+    <column>
+      <name>idAdministrativo</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>Correo</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>CorreoAdministrativo_FK_Administrativo</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idAdministrativo</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CorreoAdministrativo</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Administrativo_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Administrativo</name>
+          <schemaName>centro</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>centro</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>CorreoAdministrativo_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idAdministrativo</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CorreoAdministrativo</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>Correo</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>CorreoAdministrativo</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>centro</name>
+  </schema>
+</table>

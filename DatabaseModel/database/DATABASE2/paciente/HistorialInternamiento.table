@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>HistorialInternamiento</name>
+  <columns>
+    <column>
+      <name>idPaciente</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>Fecha</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>DATE</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>Razon</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">250</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>idMedicoEncargado</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>HistorialInternamiento_FK_Medico</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idMedicoEncargado</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>HistorialInternamiento</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Medico_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Medico</name>
+          <schemaName>medico</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>medico</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>HistorialInternamiento_FK_Paciente</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPaciente</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>HistorialInternamiento</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Paciente_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Paciente</name>
+          <schemaName>paciente</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>paciente</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>HistorialInternamiento_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPaciente</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>HistorialInternamiento</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idMedicoEncargado</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>HistorialInternamiento</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>Fecha</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>HistorialInternamiento</name>
+            <schemaName>paciente</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>paciente</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>paciente</name>
+  </schema>
+</table>

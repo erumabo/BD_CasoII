@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>FacturaCita</name>
+  <columns>
+    <column>
+      <name>idCita</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>idPlan</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>Monto</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>MONEY</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>Detalle</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">250</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>FacturaCita_FK_Cita</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPlan</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>FacturaCita</name>
+            <schemaName>facturacion</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>facturacion</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idCita</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>FacturaCita</name>
+            <schemaName>facturacion</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>facturacion</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>AgendaCitas_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>AgendaCitas</name>
+          <schemaName>planMedico</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>planMedico</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>FacturaCita_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idCita</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>FacturaCita</name>
+            <schemaName>facturacion</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>facturacion</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPlan</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>FacturaCita</name>
+            <schemaName>facturacion</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>facturacion</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>facturacion</name>
+  </schema>
+</table>
