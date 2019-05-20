@@ -1,18 +1,48 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Valoracion</name>
+  <name>AgendaCitas</name>
   <columns>
     <column>
-      <name>idPaciente</name>
+      <name>idCita</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>size</key>
+            <key>precision</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>idPlan</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">4</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>codSede</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
             <value class="java.lang.Long">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR</typeName>
+          <typeName>NUMERIC</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
@@ -30,22 +60,31 @@
           <typeName>VARCHAR</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
     </column>
     <column>
-      <name>noValoracion</name>
+      <name>idPaciente</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">5</value>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
+          <typeName>VARCHAR</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>Hora</name>
+      <dataTypeUsage>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>TIME</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
     </column>
     <column>
       <name>Fecha</name>
@@ -57,12 +96,12 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>Detalle</name>
+      <name>Motivo</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">260</value>
+            <value class="java.lang.Long">120</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -74,51 +113,45 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>Valoracion_FK_Medico</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>idMedico</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>Valoracion</name>
-            <schemaName>paciente</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>paciente</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>Medico_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>Medico</name>
-          <schemaName>medico</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>medico</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>Valoracion_FK_Paciente</name>
+      <name>AgendaCitas_FK_Plan</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>idPaciente</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Valoracion</name>
-            <schemaName>paciente</schemaName>
+            <name>AgendaCitas</name>
+            <schemaName>planMedico</schemaName>
             <type>TABLE</type>
           </parent>
-          <schemaName>paciente</schemaName>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idMedico</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>AgendaCitas</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idPlan</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>AgendaCitas</name>
+            <schemaName>planMedico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>planMedico</schemaName>
           <type>COLUMN</type>
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>Paciente_PK</name>
+        <name>PlanMedico_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>Paciente</name>
-          <schemaName>paciente</schemaName>
+          <name>PlanMedico</name>
+          <schemaName>planMedico</schemaName>
           <type>TABLE</type>
         </parent>
         <schemaName>paciente</schemaName>
@@ -126,36 +159,26 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Valoracion_PK</name>
+      <name>AgendaCitas_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>idPaciente</name>
+          <name>idPlan</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Valoracion</name>
-            <schemaName>paciente</schemaName>
+            <name>AgendaCitas</name>
+            <schemaName>planMedico</schemaName>
             <type>TABLE</type>
           </parent>
-          <schemaName>paciente</schemaName>
+          <schemaName>planMedico</schemaName>
           <type>COLUMN</type>
         </columnID>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>idMedico</name>
+          <name>idCita</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Valoracion</name>
-            <schemaName>paciente</schemaName>
+            <name>AgendaCitas</name>
+            <schemaName>planMedico</schemaName>
             <type>TABLE</type>
           </parent>
-          <schemaName>paciente</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>noValoracion</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>Valoracion</name>
-            <schemaName>paciente</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>paciente</schemaName>
+          <schemaName>planMedico</schemaName>
           <type>COLUMN</type>
         </columnID>
       </columnIDs>
@@ -169,6 +192,6 @@
     </entry>
   </properties>
   <schema>
-    <name>paciente</name>
+    <name>planMedico</name>
   </schema>
 </table>
