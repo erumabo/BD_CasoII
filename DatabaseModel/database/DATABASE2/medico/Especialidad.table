@@ -1,14 +1,14 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Farmacia</name>
+  <name>Especialidad</name>
   <columns>
     <column>
-      <name>idFarmacia</name>
+      <name>idEspecialidad</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.Long">10</value>
+            <value class="java.lang.Long">4</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -16,21 +16,6 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
-    </column>
-    <column>
-      <name>codSede</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
     </column>
     <column>
       <name>Nombre</name>
@@ -47,19 +32,34 @@
       </dataTypeUsage>
       <notNull>false</notNull>
     </column>
+    <column>
+      <name>Detalle</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">50</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Farmacia_PK</name>
+      <name>Especialidad_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>idFarmacia</name>
+          <name>idEspecialidad</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Farmacia</name>
-            <schemaName>centro</schemaName>
+            <name>Especialidad</name>
+            <schemaName>medico</schemaName>
             <type>TABLE</type>
           </parent>
-          <schemaName>centro</schemaName>
+          <schemaName>medico</schemaName>
           <type>COLUMN</type>
         </columnID>
       </columnIDs>
@@ -73,6 +73,6 @@
     </entry>
   </properties>
   <schema>
-    <name>centro</name>
+    <name>medico</name>
   </schema>
 </table>

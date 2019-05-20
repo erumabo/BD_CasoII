@@ -49,22 +49,6 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Sede_PK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>codigoSede</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>Sede</name>
-            <schemaName>centro</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>centro</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-    </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>Sede_FK_Centro</name>
       <columnIDs>
@@ -91,6 +75,22 @@
         <schemaName>centro</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>Sede_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>codigoSede</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>Sede</name>
+            <schemaName>centro</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>centro</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
     </constraint>
   </constraints>
   <properties>

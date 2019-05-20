@@ -1,54 +1,24 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>Laboratorio</name>
+  <name>EspecialidadXMedico</name>
   <columns>
     <column>
-      <name>idLaboratorio</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
-      <name>codSede</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.Long">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMERIC</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>Nombre</name>
+      <name>idMedico</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>VARCHAR</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
-      <name>tipoLaboratorio</name>
+      <name>idEspecialidad</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -60,47 +30,98 @@
           <typeName>NUMERIC</typeName>
         </dataTypeID>
       </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>CobroBase</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMERIC</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
       <notNull>false</notNull>
     </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>Laboratorio_FK_TipoLaboratorio</name>
+      <name>EspecialidadXMedico_FK_Especialidad</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>tipoLaboratorio</name>
+          <name>idEspecialidad</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Laboratorio</name>
-            <schemaName>centro</schemaName>
+            <name>EspecialidadXMedico</name>
+            <schemaName>medico</schemaName>
             <type>TABLE</type>
           </parent>
-          <schemaName>centro</schemaName>
+          <schemaName>medico</schemaName>
           <type>COLUMN</type>
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>TipoLaboratorio_PK</name>
+        <name>Especialidad_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>TipoLaboratorio</name>
-          <schemaName>tipos</schemaName>
+          <name>Especialidad</name>
+          <schemaName>medico</schemaName>
           <type>TABLE</type>
         </parent>
-        <schemaName>tipos</schemaName>
+        <schemaName>medico</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>EspecialidadXMedico_FK_Medico</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idMedico</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>EspecialidadXMedico</name>
+            <schemaName>medico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>medico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>Medico_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>Medico</name>
+          <schemaName>medico</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>medico</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>Laboratorio_PK</name>
+      <name>EspecialidadXMedico_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>idLaboratorio</name>
+          <name>idMedico</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>Laboratorio</name>
-            <schemaName>centro</schemaName>
+            <name>EspecialidadXMedico</name>
+            <schemaName>medico</schemaName>
             <type>TABLE</type>
           </parent>
-          <schemaName>centro</schemaName>
+          <schemaName>medico</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>idEspecialidad</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>EspecialidadXMedico</name>
+            <schemaName>medico</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>medico</schemaName>
           <type>COLUMN</type>
         </columnID>
       </columnIDs>
@@ -114,6 +135,6 @@
     </entry>
   </properties>
   <schema>
-    <name>centro</name>
+    <name>medico</name>
   </schema>
 </table>
